@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MenuSteps {
 
-    private HomePage homePage = new HomePage();
+    private final HomePage homePage = new HomePage();
 
     @Given("the user opens Cucumber website")
     public void openCucumberWebsite() {
@@ -23,7 +23,6 @@ public class MenuSteps {
 
     @Then("there are {int} child menu items displayed")
     public void verifyMenuItemsDisplayed(int countOfItems) {
-        homePage = null;
         assertThat(homePage.getMenuItems())
                 .as("The count of menu items is not as expected")
                 .hasSize(countOfItems);
