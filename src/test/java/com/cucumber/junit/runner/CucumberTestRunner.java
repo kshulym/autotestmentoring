@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"pretty", "html:target/cucumber-report",
+        plugin = {"pretty", "com.epam.reportportal.cucumber.StepReporter", "html:target/cucumber-report",
                 "json:target/cucumber-reports/CucumberReports.json",
                 "junit:target/cucumber-reports/CucumberReports.xml"},
         monochrome = true,
