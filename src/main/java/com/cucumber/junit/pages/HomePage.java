@@ -1,7 +1,7 @@
 package com.cucumber.junit.pages;
 
-import com.codeborne.selenide.SelenideElement;
 import com.cucumber.junit.driver.DriverManager;
+import com.cucumber.junit.webelement.DecoratedElement;
 import org.openqa.selenium.By;
 
 import java.util.List;
@@ -24,15 +24,15 @@ public class HomePage {
         DriverManager.getDriver().get(MAIN_URL);
     }
 
-    public SelenideElement getMenuSection(String linkText) {
-        return $(By.xpath(format(MENU_LINK_PATTERN, linkText)));
+    public DecoratedElement getMenuSection(String linkText) {
+        return new DecoratedElement($(By.xpath(format(MENU_LINK_PATTERN, linkText))));
     }
 
     public List<String> getMenuItems() {
         return $$(By.xpath(CHILD_MENU_LINKS)).texts();
     }
 
-    public SelenideElement getMenuItem(String itemName) {
-        return $x(String.format(CHILD_MENU_LINK_PATTERN, itemName));
+    public DecoratedElement getMenuItem(String itemName) {
+        return new DecoratedElement($x(String.format(CHILD_MENU_LINK_PATTERN, itemName)));
     }
 }
